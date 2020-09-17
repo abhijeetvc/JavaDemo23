@@ -1,7 +1,7 @@
-import java.util.function.BiFunction;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.UnaryOperator;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.*;
+import java.util.stream.Collectors;
 
 public class JavaEightFunctionalInterfaces {
 
@@ -29,8 +29,27 @@ public class JavaEightFunctionalInterfaces {
         System.out.println(i5);
 
         //Predicate
+        List<Integer> list= Arrays.asList(5,15,10,25,20,30,35);
+
+        List<Integer> list1=list.stream().filter(a->a>10).collect(Collectors.toList());
+        System.out.println(list1);
+
         //BiPredicate
+        BiPredicate<String,Integer> bif=(a,b)->{
+            return a.length()==b;
+        };
+        Boolean b=bif.test("Abhijeet",7);
+        System.out.println(b);
+
         //Consumer
+        Consumer<String> display=a-> System.out.println(a);
+        display.accept("Abhi");
+
         //BiConsumer
+        BiConsumer<Integer,Integer> bic=(a,b1)-> System.out.println(a+b1);
+        bic.accept(10,20);
+        
+        //Multithreading with one framework i.e Executors
+        //FileHandling
     }
 }
